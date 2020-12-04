@@ -17,4 +17,6 @@ class ProductPageLocators:
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main  .price_color")
     PRODUCT_PRICE_MESSAGE = (By.CSS_SELECTOR, "#messages div div p:nth-child(1) strong")
 
-
+class BasePageLocators:
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")

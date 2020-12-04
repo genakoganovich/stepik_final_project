@@ -20,3 +20,15 @@ class ProductPage(BasePage):
 
     def pull_product_price(self):
         return self.pull_text(*ProductPageLocators.PRODUCT_PRICE)
+
+    def guest_should_not_see_success_message_after_adding_product_to_basket(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_NAME_MESSAGE), \
+            "Guest should not see success message after adding product to basket"
+
+    def guest_cant_see_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_NAME_MESSAGE), \
+            "Guest should not see success message after opening the product page"
+
+    def message_disappeared_after_adding_product_to_basket(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_NAME_MESSAGE), \
+            "Success message should dissappear after adding product to basket"
