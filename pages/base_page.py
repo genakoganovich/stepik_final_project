@@ -1,5 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, NoAlertPresentException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
@@ -12,8 +11,12 @@ class BasePage:
         self.url = url
 
     def go_to_login_page(self):
-        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
+
+    def go_to_basket_page(self):
+        view_basket_button = self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON)
+        view_basket_button.click()
 
     def is_disappeared(self, how, what, timeout=4):
         try:
@@ -60,3 +63,4 @@ class BasePage:
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
