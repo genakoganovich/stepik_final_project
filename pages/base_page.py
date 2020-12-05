@@ -11,7 +11,7 @@ class BasePage:
         self.browser = browser
         self.url = url
 
-    def go_to_login_page(self):
+    def go_to_login_link(self):
         login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
 
